@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Encryption Tool</h1>
+        
+        <div class="key-section">
+            <button onclick="generateKey()" class="btn">Generate Key</button>
+            <input type="text" id="key" placeholder="Enter or paste key">
+            <button onclick="downloadKey()" class="btn">Download Key</button>
+        </div>
+
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('text')">Text</button>
+                <button class="tab" onclick="switchTab('file')">File</button>
+            </div>
+
+            <div id="text-tab" class="tab-content active">
+                <textarea id="text-input" placeholder="Enter text"></textarea>
+                <div class="button-group">
+                    <button onclick="encryptText()" class="btn encrypt">Encrypt</button>
+                    <button onclick="decryptText()" class="btn decrypt">Decrypt</button>
+                    <button onclick="copyToClipboard()" class="btn">Copy</button>
+                </div>
+                <div id="text-result"></div>
+            </div>
+
+            <div id="file-tab" class="tab-content">
+                <input type="file" id="file-input" multiple>
+                <div class="button-group">
+                    <button onclick="encryptFiles()" class="btn encrypt">Encrypt Files</button>
+                    <button onclick="decryptFiles()" class="btn decrypt">Decrypt Files</button>
+                </div>
+                <div id="file-result"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
